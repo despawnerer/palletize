@@ -12,7 +12,7 @@ def extract_dominant_colors(
     assert count > 0
     assert clusters is None or clusters >= count
     assert iterations > 0
-    assert resize_to > 0
+    assert resize_to is None or resize_to > 0
 
     if clusters is None:
         clusters = count if count > 1 else 3
@@ -22,9 +22,10 @@ def extract_dominant_colors(
     width, height = image.shape[0], image.shape[1]
     if resize_to is not None:
         ratio = resize_to / max(width, height)
-        width = int(width * ratio)
-        height = int(height * ratio)
-        image = imresize(image, (width, height))
+        if ratio < 1:
+            width = int(width * ratio)
+            height = int(height * ratio)
+            image = imresize(image, (width, height))
 
     # find centroids of color clusters
     pixels = reshape(image, (width * height, 3))
