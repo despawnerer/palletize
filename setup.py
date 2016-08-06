@@ -23,6 +23,7 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     python_modules=['palletize'],
+    scripts=['bin/palletize'],
     install_requires=[
         'numpy>=1.11',
         'scipy>=0.18',
