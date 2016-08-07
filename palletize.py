@@ -18,7 +18,7 @@ def extract_dominant_colors(
         clusters = count if count > 1 else 3
 
     # load and downsample the image
-    image = imread(file_or_filename)
+    image = imread(file_or_filename, mode='RGB')
     width, height = image.shape[0], image.shape[1]
     if resize_to is not None:
         ratio = resize_to / max(width, height)
