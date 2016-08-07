@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='palletize',
-    version='0.1.1',
+    version='0.1.2',
     description='Extract dominant colors from image using K-means',
     url='https://github.com/despawnerer/palletize',
     author='Aleksei Voronov',
